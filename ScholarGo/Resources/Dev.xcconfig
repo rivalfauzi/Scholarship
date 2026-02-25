@@ -1,0 +1,14 @@
+//
+//  Dev.xcconfig
+//  ScholarGo
+//
+//  Created by Rival Fauzi on 20/02/26.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://developer.apple.com/documentation/xcode/adding-a-build-configuration-file-to-your-project
+
+SUPABASE_URL = https:/$()/yarokybwmdwuizzknwkm.supabase.co
+SUPABASE_KEY = sb_publishable_69jUjuIDU7GNWS7vFGwfEQ_wAECJ6LJ
+
+IS_DEV = YES

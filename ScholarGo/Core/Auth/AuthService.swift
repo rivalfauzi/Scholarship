@@ -19,6 +19,13 @@ final class AuthService {
         )
     }
     
+    func signIn(email: String, password: String) async throws {
+        try await client.auth.signIn(
+            email: email,
+            password: password
+        )
+    }
+    
     func handleDeepLink(_ url: URL) async throws {
         try await client.auth.session(from: url)
     }

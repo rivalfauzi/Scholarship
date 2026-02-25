@@ -14,11 +14,27 @@ struct AppControllerView: View {
     
     var body: some View {
         Group {
-            if controller.isAuthenticated {
-                Text("Main Flow")
-            } else {
-                Text("Auth Flow")
+            switch controller.state {
+            case .loading:
+                SplashView()
+            case .authenticated:
+                MainController {
+                    controller.state = .unauthenticated
+                }.view()
+            case .unauthenticated:
+                AuthCoordinator().start {
+                    controller.state = .authenticated
+                }
             }
+        }
+        .onOpenURL { url in
+            Task {
+                try? await AuthService().handleDeepLink(url)
+                await controller.checkSession()
+            }
+        }
+        .task {
+            await controller.checkSession()
         }
     }
 }

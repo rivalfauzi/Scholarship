@@ -15,9 +15,17 @@ final class SupabaseClientProvider {
     let client: SupabaseClient
     
     private init() {
+        guard
+            let urlString = Bundle.main.object(forInfoDictionaryKey: "SUPABASE_URL") as? String,
+            let supabaseKey = Bundle.main.object(forInfoDictionaryKey: "SUPABASE_KEY") as? String,
+            let supabaseURL = URL(string: urlString)
+        else {
+            fatalError("Supabase configuration not found")
+        }
+        
         client = SupabaseClient(
-            supabaseURL: URL(string: "YOUR_PROJECT_URL")!,
-            supabaseKey: "YOUR_ANON_PUBLIC_KEY"
+            supabaseURL: supabaseURL,
+            supabaseKey: supabaseKey
         )
     }
 }

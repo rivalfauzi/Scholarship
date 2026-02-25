@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		463D05C82F4891AF00680034 /* SkeletonUI in Frameworks */ = {isa = PBXBuildFile; productRef = 463D05C72F4891AF00680034 /* SkeletonUI */; };
 		7413F3C62F4708110062F164 /* Auth in Frameworks */ = {isa = PBXBuildFile; productRef = 7413F3C52F4708110062F164 /* Auth */; };
 		7413F3C82F4708110062F164 /* Functions in Frameworks */ = {isa = PBXBuildFile; productRef = 7413F3C72F4708110062F164 /* Functions */; };
 		7413F3CA2F4708110062F164 /* PostgREST in Frameworks */ = {isa = PBXBuildFile; productRef = 7413F3C92F4708110062F164 /* PostgREST */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		463D04632F4824FE00680034 /* Scholarships-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Scholarships-Info.plist"; sourceTree = "<group>"; };
 		7413F39C2F46F7C80062F164 /* Scholarships.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Scholarships.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -36,6 +38,7 @@
 				7413F3C82F4708110062F164 /* Functions in Frameworks */,
 				7413F3D02F4708110062F164 /* Supabase in Frameworks */,
 				7413F3C62F4708110062F164 /* Auth in Frameworks */,
+				463D05C82F4891AF00680034 /* SkeletonUI in Frameworks */,
 				7413F3CE2F4708110062F164 /* Storage in Frameworks */,
 				7413F3CC2F4708110062F164 /* Realtime in Frameworks */,
 			);
@@ -47,6 +50,7 @@
 		7413F3932F46F7C80062F164 = {
 			isa = PBXGroup;
 			children = (
+				463D04632F4824FE00680034 /* Scholarships-Info.plist */,
 				7413F39E2F46F7C80062F164 /* ScholarGo */,
 				7413F39D2F46F7C80062F164 /* Products */,
 			);
@@ -86,6 +90,7 @@
 				7413F3CB2F4708110062F164 /* Realtime */,
 				7413F3CD2F4708110062F164 /* Storage */,
 				7413F3CF2F4708110062F164 /* Supabase */,
+				463D05C72F4891AF00680034 /* SkeletonUI */,
 			);
 			productName = Scholarships;
 			productReference = 7413F39C2F46F7C80062F164 /* Scholarships.app */;
@@ -117,6 +122,7 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				7413F3C42F4708110062F164 /* XCRemoteSwiftPackageReference "supabase-swift" */,
+				463D05C62F4891AF00680034 /* XCRemoteSwiftPackageReference "SkeletonUI" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 7413F39D2F46F7C80062F164 /* Products */;
@@ -149,8 +155,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		7413F3A72F46F7CA0062F164 /* Debug */ = {
+		463D04722F48279B00680034 /* Dev */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReferenceAnchor = 7413F39E2F46F7C80062F164 /* ScholarGo */;
+			baseConfigurationReferenceRelativePath = Resources/Dev.xcconfig;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -211,9 +219,47 @@
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
-			name = Debug;
+			name = Dev;
 		};
-		7413F3A82F46F7CA0062F164 /* Release */ = {
+		463D04732F48279B00680034 /* Dev */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReferenceAnchor = 7413F39E2F46F7C80062F164 /* ScholarGo */;
+			baseConfigurationReferenceRelativePath = Resources/Dev.xcconfig;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 365WJYN4LU;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Scholarships-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Scholar Go";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.rivaldynasty.www.scholargo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Dev;
+		};
+		463D04742F4827A200680034 /* Prod */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -268,9 +314,9 @@
 				SWIFT_COMPILATION_MODE = wholemodule;
 				VALIDATE_PRODUCT = YES;
 			};
-			name = Release;
+			name = Prod;
 		};
-		7413F3AA2F46F7CA0062F164 /* Debug */ = {
+		463D04752F4827A200680034 /* Prod */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -280,12 +326,15 @@
 				DEVELOPMENT_TEAM = 365WJYN4LU;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = ScholarGo;
+				INFOPLIST_FILE = "Scholarships-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Scholar Go";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -301,40 +350,7 @@
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
-			name = Debug;
-		};
-		7413F3AB2F46F7CA0062F164 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 365WJYN4LU;
-				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = ScholarGo;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
-				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.rivaldynasty.www.scholargo;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				STRING_CATALOG_GENERATE_SYMBOLS = YES;
-				SWIFT_APPROACHABLE_CONCURRENCY = YES;
-				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
+			name = Prod;
 		};
 /* End XCBuildConfiguration section */
 
@@ -342,24 +358,32 @@
 		7413F3972F46F7C80062F164 /* Build configuration list for PBXProject "ScholarGo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				7413F3A72F46F7CA0062F164 /* Debug */,
-				7413F3A82F46F7CA0062F164 /* Release */,
+				463D04722F48279B00680034 /* Dev */,
+				463D04742F4827A200680034 /* Prod */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Dev;
 		};
 		7413F3A92F46F7CA0062F164 /* Build configuration list for PBXNativeTarget "Scholarships" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				7413F3AA2F46F7CA0062F164 /* Debug */,
-				7413F3AB2F46F7CA0062F164 /* Release */,
+				463D04732F48279B00680034 /* Dev */,
+				463D04752F4827A200680034 /* Prod */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Dev;
 		};
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		463D05C62F4891AF00680034 /* XCRemoteSwiftPackageReference "SkeletonUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/CSolanaM/SkeletonUI";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.2;
+			};
+		};
 		7413F3C42F4708110062F164 /* XCRemoteSwiftPackageReference "supabase-swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/supabase/supabase-swift";
@@ -371,6 +395,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		463D05C72F4891AF00680034 /* SkeletonUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 463D05C62F4891AF00680034 /* XCRemoteSwiftPackageReference "SkeletonUI" */;
+			productName = SkeletonUI;
+		};
 		7413F3C52F4708110062F164 /* Auth */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 7413F3C42F4708110062F164 /* XCRemoteSwiftPackageReference "supabase-swift" */;
