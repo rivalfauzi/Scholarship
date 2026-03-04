@@ -8,40 +8,28 @@
 import SwiftUI
 
 struct AuthCoordinatorView: View {
-    
-    @StateObject var coordinator: AuthCoordinator
-    var onFinish: () -> Void
+    @StateObject private var router = AuthRouter()
     
     var body: some View {
-        NavigationStack(path: $coordinator.path) {
-            build(.login)
-                .navigationDestination(for: AuthRoute.self) { route in
-                    build(route)
-                }
+        NavigationStack(path: $router.path) {
+            LoginView(
+                viewModel: LoginViewModel(
+                    navigate: router.push
+                )
+            )
+            .navigationDestination(for: AuthRoute.self) { route in
+                build(route)
+            }
         }
     }
     
     @ViewBuilder
     private func build(_ route: AuthRoute) -> some View {
         switch route {
-        case .login:
-            LoginView(
-                viewModel: LoginViewModel(
-                    coordinator: coordinator,
-                    onFinish: onFinish
-                )
-            )
-            
         case .signUp:
-            SignUpView(
-//                viewModel: SignUpViewModel(coordinator: coordinator)
-            )
-            
+            SignUpView(viewModel: SignupViewModel())
         case .forgotPassword:
-//            ForgotPasswordView(
-//                viewModel: ForgotPasswordViewModel(coordinator: coordinator)
-//            )
-            EmptyView()
+            ForgotPasswordView(viewModel: ForgotPasswordViewModel())
         }
     }
 }

@@ -8,18 +8,8 @@
 
 import Foundation
 
-enum AppRoute: Hashable {
-    
-    // Root Flow
+enum AppFlow {
+    case loading
     case auth
     case main
-    
-    // Auth Flow
-    case login
-    case register
-    
-    // Main Flow
-    case home
-    case courseDetail(id: String)
-    case profile(userID: String)
 }

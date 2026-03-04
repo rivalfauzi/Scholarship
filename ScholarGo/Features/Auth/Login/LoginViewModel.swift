@@ -9,38 +9,20 @@ import SwiftUI
 import Combine
 
 final class LoginViewModel: ObservableObject {
+    private let authService = AuthService.shared
+    let navigate: (AuthRoute) -> Void
     
-    @Published var email: String = ""
-    @Published var password: String = ""
-    @Published var errorMessage: String?
+    init(navigate: @escaping (AuthRoute) -> Void = { _ in }) {
+        self.navigate = navigate
+    }
+    
+    @Published var email = ""
+    @Published var password = ""
     @Published var isLoading = false
     
-    private let authService = AuthService()
-    private weak var coordinator: AuthCoordinator?
-    private let onFinish: () -> Void
-    
-    init(coordinator: AuthCoordinator,
-         onFinish: @escaping () -> Void) {
-        self.coordinator = coordinator
-        self.onFinish = onFinish
-    }
-    
-    func loginTapped() {
-        onFinish()
-    }
-    
-    func signUpTapped() {
-        coordinator?.path.append(AuthRoute.signUp)
-    }
-    
-    func forgotPasswordTapped() {
-        coordinator?.path.append(AuthRoute.forgotPassword)
-    }
-    
-    func login() async throws {
-        
+    func loginTapped() async throws {
         guard !email.isEmpty, !password.isEmpty else {
-            errorMessage = "Email dan password wajib diisi"
+            print("Email dan password wajib diisi")
             return
         }
         
@@ -48,10 +30,17 @@ final class LoginViewModel: ObservableObject {
         defer { isLoading = false }
         
         do {
-            try await authService.signIn(email: email, password: password)
-            self.loginTapped()
+            try await authService.login(email: email, password: password)
         } catch {
-            errorMessage = error.localizedDescription
+            print(error.localizedDescription)
         }
     }
+    
+//    func signupTapped() {
+//        subject.send(.navigateToSignup)
+//    }
+//    
+//    func forgotTapped() {
+//        subject.send(.navigateToForgotPassword)
+//    }
 }

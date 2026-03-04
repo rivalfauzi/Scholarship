@@ -8,26 +8,12 @@
 import SwiftUI
 import Combine
 
-class SignUpViewModel: ObservableObject {
-    private let authService = AuthService()
-    private weak var coordinator: AuthCoordinator?
+class SignupViewModel: ObservableObject {
+    private let authService = AuthService.shared
+    let navigate: (AuthRoute) -> Void
     
-    @Published var email: String = ""
-    @Published var password: String = ""
-    @Published var confirmPassword: String = ""
-    
-    init(coordinator: AuthCoordinator) {
-        self.coordinator = coordinator
+    init(navigate: @escaping (AuthRoute) -> Void = { _ in }) {
+        self.navigate = navigate
     }
     
-    func signUp() async {
-        guard !email.isEmpty, !password.isEmpty, password == confirmPassword else { return }
-        
-        do {
-            try await authService.sendMagicLink(to: email)
-            coordinator?.path.removeLast()
-        } catch {
-            print(error.localizedDescription)
-        }
-    }
 }

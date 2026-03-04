@@ -14,8 +14,6 @@ struct LoginView: View {
     @State private var email = ""
     @State private var password = ""
     
-//    var onAction: (AuthAction) -> Void
-    
     var body: some View {
         ZStack(alignment: .bottom) {
             
@@ -106,7 +104,7 @@ private extension LoginView {
             
             Button {
                 Task {
-                    try await viewModel.login()
+                    try await viewModel.loginTapped()
                 }
             } label: {
                 if viewModel.isLoading {
@@ -175,7 +173,7 @@ private extension LoginView {
                     .foregroundColor(AppColor.textSecondary)
                 
                 Button {
-                    viewModel.signUpTapped()
+                    viewModel.navigate(.signUp)
                 } label: {
                     Text("Sign Up")
                         .font(AppFont.caption)
@@ -189,11 +187,4 @@ private extension LoginView {
         .clipShape(.rect(topLeadingRadius: 24, topTrailingRadius: 24))
         .shadow(color: .black.opacity(0.05), radius: 20, y: 10)
     }
-}
-
-#Preview {
-    LoginView(viewModel: LoginViewModel(coordinator: AuthCoordinator(), onFinish: {
-        print("oke")
-    }))
-        
 }

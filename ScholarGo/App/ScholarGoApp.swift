@@ -9,14 +9,9 @@ import SwiftUI
 
 @main
 struct ScholarGoApp: App {
-    @StateObject private var router = AppRouter()
-    
     var body: some Scene {
         WindowGroup {
-            NavigationStack(path: $router.path) {
-                AppControllerView()
-            }
-            .environmentObject(router)
+            AppCoordinatorView()
         }
     }
 }

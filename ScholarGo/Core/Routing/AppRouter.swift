@@ -2,34 +2,41 @@
 //  AppRouter.swift
 //  Scholarships
 //
-//  Created by Rival Fauzi on 21/02/26.
+//  Created by Rival Fauzi on 01/03/26.
 //
-
 
 import SwiftUI
 import Combine
 
-final class AppRouter: ObservableObject {
+@MainActor
+final class Router<Route: Hashable>: ObservableObject {
     
     @Published var path = NavigationPath()
-    @Published var root: AppRoute = .auth
     
-    // MARK: - Navigation
+    // MARK: - Basic
     
-    func push(_ route: AppRoute) {
+    func push(_ route: Route) {
         path.append(route)
     }
     
     func pop() {
+        guard !path.isEmpty else { return }
         path.removeLast()
     }
+    
+    // MARK: - Advanced
     
     func popToRoot() {
         path = NavigationPath()
     }
     
-    func switchRoot(to route: AppRoute) {
+    func replaceStack(with routes: [Route]) {
+        var newPath = NavigationPath()
+        routes.forEach { newPath.append($0) }
+        path = newPath
+    }
+    
+    func reset() {
         path = NavigationPath()
-        root = route
     }
 }
